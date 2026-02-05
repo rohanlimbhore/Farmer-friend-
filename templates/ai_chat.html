@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ t.ai_chat }}</h2>
+<div class="form-box">
+    <form method="POST">
+        <input type="text" name="query" placeholder="Type your question..." required>
+        <button type="submit">🎤 Ask AI</button>
+    </form>
+</div>
+
+{% if response %}
+<div class="ai-result">
+    <p><strong>AI:</strong> {{ response }}</p>
+</div>
+{% endif %}
+{% endblock %}
