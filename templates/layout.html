@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ lang_code }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <div style="font-size: 1.2em;">🌾 {{ t.title }}</div>
+    <nav>
+        {% if session.user_id %}
+            <a href="{{ url_for('dashboard') }}">{{ t.dashboard }}</a>
+            <a href="{{ url_for('logout') }}">{{ t.logout }}</a>
+        {% endif %}
+    </nav>
+</header>
+
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div style="background:#ffcdd2; padding:10px; border-radius:4px; margin-bottom:10px;">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>
