@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ t.community }}</h2>
+
+<div class="form-box" style="margin-bottom: 20px;">
+    <h3>{{ t.post }}</h3>
+    <form method="POST">
+        <textarea name="content" placeholder="Share experience..." required></textarea>
+        <input type="text" name="video" placeholder="Video Link (YouTube)">
+        <button type="submit">{{ t.post }}</button>
+    </form>
+</div>
+
+{% for p in posts %}
+<div class="post">
+    <div class="post-meta"><strong>{{ p.name }}</strong> ({{ p.village }})</div>
+    <p>{{ p.content }}</p>
+    {% if p.video_link %}
+        <a href="{{ p.video_link }}" target="_blank" class="video-link">📺 Watch Video</a>
+    {% endif %}
+    <div style="margin-top:10px;">
+        <form method="POST" style="display:inline;">
+            <input type="hidden" name="like_post" value="{{ p.id }}">
+            <button type="submit" style="width:auto; padding: 5px 10px;">👍 {{ p.likes }}</button>
+        </form>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
