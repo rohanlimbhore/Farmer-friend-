@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ t.products }}</h2>
+
+<div class="form-box">
+    <h3>Sell Product</h3>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Product Name" required>
+        <input type="text" name="category" placeholder="Category (e.g., Seeds, Veg)" required>
+        <input type="text" name="quantity" placeholder="Quantity (kg)" required>
+        <input type="text" name="price" placeholder="{{ t.price }}" required>
+        <input type="text" name="contact" placeholder="{{ t.contact }}" required>
+        <button type="submit">List Product</button>
+    </form>
+</div>
+
+<h3>Available Listings</h3>
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Loc</th>
+        <th>Call</th>
+    </tr>
+    {% for i in items %}
+    <tr>
+        <td>{{ i.name }} ({{ i.category }})</td>
+        <td>{{ i.quantity }}</td>
+        <td>₹{{ i.price }}</td>
+        <td>{{ i.location }}</td>
+        <td><a href="tel:{{ i.contact }}">{{ i.contact }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
