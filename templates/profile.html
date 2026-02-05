@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ t.profile }}</h2>
+<div class="card" style="text-align:left; border:none;">
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Village:</strong> {{ user.village }}, {{ user.district }}</p>
+    <p><strong>Primary Crop:</strong> {{ user.crop }}</p>
+    <p><strong>Language:</strong> {{ user.lang }}</p>
+</div>
+{% endblock %}
