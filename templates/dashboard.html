@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>{{ t.welcome }}, {{ name }}!</h3>
+<div class="dashboard-grid">
+    <a href="{{ url_for('ai_problem') }}" class="card">🚑 {{ t.ai_problem }}</a>
+    <a href="{{ url_for('ai_info') }}" class="card">📖 {{ t.ai_info }}</a>
+    <a href="{{ url_for('ai_chat') }}" class="card">🎙️ {{ t.ai_chat }}</a>
+    <a href="{{ url_for('community') }}" class="card">👥 {{ t.community }}</a>
+    <a href="{{ url_for('products') }}" class="card">🛒 {{ t.products }}</a>
+    <a href="{{ url_for('schemes') }}" class="card">🏛️ {{ t.schemes }}</a>
+    <a href="{{ url_for('market') }}" class="card">📈 {{ t.market }}</a>
+    <a href="{{ url_for('profile') }}" class="card">👤 {{ t.profile }}</a>
+</div>
+{% endblock %}
+
