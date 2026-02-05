@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ t.ai_info }}</h2>
+<div class="form-box">
+    <form method="POST">
+        <input type="text" name="crop" placeholder="{{ t.enter_crop }}" required>
+        <button type="submit">{{ t.submit }}</button>
+    </form>
+</div>
+
+{% if result %}
+<div class="ai-result">
+    <h3>Details:</h3>
+    <ul>
+        {% for key, value in result.items() %}
+            <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}
