@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ t.market }}</h2>
+<p>Showing prices for Pune/Mumbai</p>
+<table>
+    <tr>
+        <th>Crop</th>
+        <th>Market</th>
+        <th>Price/kg</th>
+        <th>Date</th>
+    </tr>
+    {% for m in prices %}
+    <tr>
+        <td>{{ m.crop }}</td>
+        <td>{{ m.market_loc }}</td>
+        <td>₹{{ m.price }}</td>
+        <td>{{ m.date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
