@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ t.schemes }}</h2>
+{% for s in schemes %}
+<div class="post" style="border-left-color: #ff9800;">
+    <h3>{{ s.name }}</h3>
+    <p>{{ s.description }}</p>
+    <p><strong>Eligibility:</strong> {{ s.eligibility }}</p>
+    <a href="{{ s.link }}" target="_blank">View Official Site</a>
+</div>
+{% endfor %}
+{% endblock %}
